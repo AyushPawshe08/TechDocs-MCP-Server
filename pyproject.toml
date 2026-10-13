@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tech-docs-mcp"
+version = "0.1.0"
+description = "MCP server connecting AI assistants to verified library documentation via Context7"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "dotenv>=0.9.9",
+    "fastmcp>=4.1.0",
+    "httpx>=0.28.1",
+    "langchain>=1.4.4",
+    "langchain-groq>=1.1.3",
+    "langchain-mcp-adapters>=0.3.1",
+    "rich>=15.0.0",
+    "tavily-python>=0.8.5",
+    "trafilatura>=2.3.1",
+]
+
+# 1. Tells setuptools to find your package inside the "src" folder:
+[tool.setuptools.packages.find]
+where = ["src"]
+
+# 2. Defines the terminal command:
+# command_name = "<folder_inside_src>.<file_name>:<function_name>"
+[project.scripts]
+tech-docs-mcp = "tech_docs_mcp.main:main"
